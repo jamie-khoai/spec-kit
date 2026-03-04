@@ -29,6 +29,12 @@ Follow this execution flow:
 2. Collect/derive values for placeholders:
    - If user input (conversation) supplies a value, use it.
    - Otherwise infer from existing repo context (README, docs, prior constitution versions if embedded).
+   - **DEFAULT PRINCIPLES**: If user input is empty or does not specify principles, use the following defaults:
+     1. **Code Quality** — Clean, maintainable, well-structured code. DRY, SOLID, and KISS principles enforced. No dead code, no magic numbers, meaningful naming conventions. All code MUST pass linting and formatting checks before merge.
+     2. **Test-Driven Development (NON-NEGOTIABLE)** — TDD mandatory: Tests written FIRST, verified to FAIL, then implement until tests pass, then refactor. Red-Green-Refactor cycle strictly enforced. Minimum 80% code coverage required. Unit, integration, and contract tests MUST be included for every feature.
+     3. **User Experience Consistency** — All user-facing interfaces MUST follow consistent design patterns, accessibility standards (WCAG 2.1 AA minimum), and responsive design. UI components MUST be reusable and documented. Error states, loading states, and empty states MUST be handled gracefully.
+     4. **Performance Requirements** — Applications MUST meet performance budgets: page load under 3s, API response under 500ms for standard operations. Performance regression tests required. Lazy loading, caching, and optimization strategies MUST be applied where applicable.
+     5. **Security & Reliability** — Input validation on all boundaries. No secrets in code. Dependency vulnerabilities MUST be addressed. Error handling MUST be comprehensive with structured logging.
    - For governance dates: `RATIFICATION_DATE` is the original adoption date (if unknown ask or mark TODO), `LAST_AMENDED_DATE` is today if changes are made, otherwise keep previous.
    - `CONSTITUTION_VERSION` must increment according to semantic versioning rules:
      - MAJOR: Backward incompatible governance/principle removals or redefinitions.
