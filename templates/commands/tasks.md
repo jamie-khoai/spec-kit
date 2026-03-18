@@ -71,7 +71,9 @@ The tasks.md should be immediately executable - each task must be specific enoug
 
 **CRITICAL**: Tasks MUST be organized by user story to enable independent implementation and testing.
 
-**Tests are MANDATORY (TDD)**: Every user story phase MUST include test tasks. Tests MUST be written FIRST and verified to FAIL before implementation begins. Red-Green-Refactor cycle is enforced by default.
+**Tests are MANDATORY**: Every user story phase MUST include test tasks.
+- **Models, logic, services, APIs:** TDD — write tests FIRST, verify FAIL, then implement.
+- **Mobile / UI (unit tests don't fit):** Spec-first — define acceptance criteria before implementation; verify with snapshot/UI/E2E tests after. Models and ViewModels still use full TDD.
 
 ### Checklist Format (REQUIRED)
 

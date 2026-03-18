@@ -8,7 +8,7 @@ description: "Task list template for feature implementation"
 **Input**: Design documents from `/specs/[###-feature-name]/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: TDD is MANDATORY. Every user story phase MUST include test tasks written BEFORE implementation. Red-Green-Refactor cycle is enforced.
+**Tests**: Test tasks are MANDATORY. For models, logic, services, APIs — TDD (tests FIRST, verify FAIL, then implement). For mobile/UI where unit tests don't fit — spec-first (acceptance criteria before implementation, verify with snapshot/UI/E2E after). Models and ViewModels always use full TDD.
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -79,9 +79,9 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 (REQUIRED - TDD) 🔴
+### Tests for User Story 1 (REQUIRED) 🔴
 
-> **NON-NEGOTIABLE: Write these tests FIRST, ensure they FAIL before implementation (Red phase)**
+> **Models/logic/APIs:** Write tests FIRST, ensure they FAIL, then implement (Red-Green-Refactor). **Mobile UI:** Define acceptance criteria first, implement, then add snapshot/UI/E2E tests.
 
 - [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
@@ -105,7 +105,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 2 (REQUIRED - TDD) 🔴
+### Tests for User Story 2 (REQUIRED) 🔴
 
 - [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
@@ -127,7 +127,7 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 3 (REQUIRED - TDD) 🔴
+### Tests for User Story 3 (REQUIRED) 🔴
 
 - [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py

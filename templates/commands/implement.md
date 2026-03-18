@@ -115,9 +115,10 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 7. Implementation execution rules:
    - **Setup first**: Initialize project structure, dependencies, configuration
-   - **Tests before code (MANDATORY)**: Write tests for contracts, entities, and integration scenarios BEFORE implementation. Tests MUST fail before writing production code.
-   - **Core development**: Implement models, services, CLI commands, endpoints — each preceded by its failing test
-   - **Integration work**: Database connections, middleware, logging, external services — with integration tests written first
+   - **Tests before code (MANDATORY for testable code)**: Models, logic, services, APIs — write tests FIRST, verify they FAIL, then implement. Red-Green-Refactor.
+   - **Mobile / UI exception**: When unit tests don't fit (e.g. UI-only, snapshot-tested screens), define acceptance criteria FIRST, then implement, then verify with snapshot/UI/E2E tests. Models and ViewModels still follow full TDD.
+   - **Core development**: Each testable unit preceded by its failing test; UI layers use spec-first + post-implementation verification
+   - **Integration work**: Integration tests written first where applicable
    - **Polish and validation**: Ensure all tests pass, performance optimization, documentation
 
 8. Progress tracking and error handling:

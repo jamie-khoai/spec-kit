@@ -11,15 +11,16 @@ Clean, maintainable, well-structured code. DRY, SOLID, and KISS principles enfor
 - All public APIs MUST be documented
 - Code reviews MUST verify adherence to these standards
 
-### II. Test-Driven Development (NON-NEGOTIABLE)
+### II. Test-Driven Development (NON-NEGOTIABLE for testable code)
 
-TDD mandatory: Tests written FIRST → verified to FAIL → implement until tests pass → refactor. Red-Green-Refactor cycle strictly enforced.
+**Models, logic, services, APIs:** TDD mandatory. Tests written FIRST → verified to FAIL → implement until tests pass → refactor. Red-Green-Refactor cycle strictly enforced.
 
-- Minimum 80% code coverage required
-- Unit tests for all business logic
-- Integration tests for all service boundaries and API contracts
+- Unit tests for all business logic, models, ViewModels, repositories
+- Integration tests for service boundaries and API contracts
 - Contract tests for inter-service communication
-- No implementation code without a corresponding failing test first
+- No implementation code without a corresponding failing test first for testable units
+
+**Mobile / UI (when unit tests don't fit):** Spec-first acceptable. Define acceptance criteria or expected behavior BEFORE implementation. Verify with snapshot, UI, or E2E tests after implementation. Models and ViewModels still follow full TDD.
 
 ### III. User Experience Consistency
 
