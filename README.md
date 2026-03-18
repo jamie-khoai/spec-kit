@@ -82,14 +82,45 @@ Run directly without installing:
 uvx --from git+https://github.com/jamie-khoai/spec-kit.git specify init <PROJECT_NAME>
 ```
 
-**Benefits of persistent installation:**
+### 2. Spec Kit Workflows
 
-- Tool stays installed and available in PATH
-- No need to create shell aliases
-- Better tool management with `uv tool list`, `uv tool upgrade`, `uv tool uninstall`
-- Cleaner shell configuration
+All tickets go through **spec → plan → tasks → implement**. TDD is enforced. Tests are generated and run automatically.
 
-### 2. Establish project principles
+---
+
+```mermaid
+flowchart LR
+    A[constitution] --> B[specify] --> C[plan] --> D[tasks] --> E[implement + TDD]
+```
+
+### 3. Available Slash Commands
+
+After running `specify init`, your AI coding agent will have access to these slash commands for structured development:
+
+#### Core Commands
+
+Essential commands for the Spec-Driven Development workflow:
+
+| Command                 | Description                                                              |
+| ----------------------- | ------------------------------------------------------------------------ |
+| `/speckit.constitution` | Create or update project governing principles and development guidelines |
+| `/speckit.specify`      | Define what you want to build (requirements and user stories)            |
+| `/speckit.plan`         | Create technical implementation plans with your chosen tech stack        |
+| `/speckit.tasks`        | Generate actionable task lists for implementation                        |
+| `/speckit.implement`    | Execute all tasks to build the feature according to the plan             |
+
+#### Optional Commands
+
+Additional commands for enhanced quality and validation:
+
+| Command              | Description                                                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `/speckit.clarify`   | Clarify underspecified areas (recommended before `/speckit.plan`; formerly `/quizme`)                                                |
+| `/speckit.analyze`   | Cross-artifact consistency & coverage analysis (run after `/speckit.tasks`, before `/speckit.implement`)                             |
+| `/speckit.checklist` | Generate custom quality checklists that validate requirements completeness, clarity, and consistency (like "unit tests for English") |
+
+
+### 4. Establish project principles
 
 Launch your AI assistant in the project directory. The `/speckit.*` commands are available in the assistant.
 
@@ -99,7 +130,7 @@ Use the **`/speckit.constitution`** command to create your project's governing p
 /speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements
 ```
 
-### 3. Create the spec
+### 5. Create the spec
 
 Use the **`/speckit.specify`** command to describe what you want to build. Focus on the **what** and **why**, not the tech stack.
 
@@ -107,7 +138,7 @@ Use the **`/speckit.specify`** command to describe what you want to build. Focus
 /speckit.specify Build an application that can help me organize my photos in separate photo albums. Albums are grouped by date and can be re-organized by dragging and dropping on the main page. Albums are never in other nested albums. Within each album, photos are previewed in a tile-like interface.
 ```
 
-### 4. Create a technical implementation plan
+### 6. Create a technical implementation plan
 
 Use the **`/speckit.plan`** command to provide your tech stack and architecture choices.
 
@@ -115,7 +146,7 @@ Use the **`/speckit.plan`** command to provide your tech stack and architecture 
 /speckit.plan The application uses Vite with minimal number of libraries. Use vanilla HTML, CSS, and JavaScript as much as possible. Images are not uploaded anywhere and metadata is stored in a local SQLite database.
 ```
 
-### 5. Break down into tasks
+### 7. Break down into tasks
 
 Use **`/speckit.tasks`** to create an actionable task list from your implementation plan.
 
@@ -123,7 +154,7 @@ Use **`/speckit.tasks`** to create an actionable task list from your implementat
 /speckit.tasks
 ```
 
-### 6. Execute implementation
+### 8. Execute implementation
 
 Use **`/speckit.implement`** to execute all tasks and build your feature according to the plan.
 
@@ -256,32 +287,6 @@ specify init --here --ai gemini --ai-skills
 # Check system requirements
 specify check
 ```
-
-### Available Slash Commands
-
-After running `specify init`, your AI coding agent will have access to these slash commands for structured development:
-
-#### Core Commands
-
-Essential commands for the Spec-Driven Development workflow:
-
-| Command                 | Description                                                              |
-| ----------------------- | ------------------------------------------------------------------------ |
-| `/speckit.constitution` | Create or update project governing principles and development guidelines |
-| `/speckit.specify`      | Define what you want to build (requirements and user stories)            |
-| `/speckit.plan`         | Create technical implementation plans with your chosen tech stack        |
-| `/speckit.tasks`        | Generate actionable task lists for implementation                        |
-| `/speckit.implement`    | Execute all tasks to build the feature according to the plan             |
-
-#### Optional Commands
-
-Additional commands for enhanced quality and validation:
-
-| Command              | Description                                                                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `/speckit.clarify`   | Clarify underspecified areas (recommended before `/speckit.plan`; formerly `/quizme`)                                                |
-| `/speckit.analyze`   | Cross-artifact consistency & coverage analysis (run after `/speckit.tasks`, before `/speckit.implement`)                             |
-| `/speckit.checklist` | Generate custom quality checklists that validate requirements completeness, clarity, and consistency (like "unit tests for English") |
 
 ### Environment Variables
 
